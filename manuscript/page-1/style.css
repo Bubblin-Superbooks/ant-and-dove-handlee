@@ -8,9 +8,9 @@ p {
 }
 
 img {
-	width: 90%;
+	width: 100%;
   margin-top: 10vw;
-  border: solid 12px white;
+  /*border: solid 12px white;*/
 }
 
 .frontText {
