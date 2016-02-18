@@ -1,1 +1,81 @@
-body{background:rgba(200, 235, 255, 0.99); margin:0 0; overflow:hidden;}
+@import url(https://fonts.googleapis.com/css?family=ABeeZee);
+
+body {
+  font: 6vw/1.5 'ABeeZee', sans-serif;
+  margin: 0 0;
+  overflow: hidden; /* No reflow */
+  color: black;
+  background-color: #fff;
+}
+
+h1 {
+  margin: 2vw 0;
+  padding:0;
+}
+
+h2 {
+  margin: 2vw 0;
+  padding:0;
+}
+
+h3 {
+  margin: 2vw 0;
+  padding:0;
+}
+
+h4 {
+  margin: 2vw 0;
+  padding:0;
+}
+
+p {
+  margin: 4vw 0;
+}
+
+img {
+  width: 80%;
+  margin: auto;
+}
+
+.backText {
+  font-size: 4vw;
+  line-height: 120%;
+}
+
+.copyright {
+  font-size: 3vw;
+  line-height: 120%;
+}
+
+.leaf {
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+}
+
+.inner {
+  margin: auto;
+  width: 98%;
+}
+
+.flex {
+  display: -webkit-box;
+  display: flex !important;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}

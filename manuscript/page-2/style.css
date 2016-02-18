@@ -1,0 +1,10 @@
+img {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px transparent;
+}
+
+img:hover {
+    border-color: blue;
+}

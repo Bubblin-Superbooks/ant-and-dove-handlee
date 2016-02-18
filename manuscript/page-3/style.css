@@ -1,0 +1,13 @@
+body {
+  font-size: 4vw;
+}
+
+img {
+  width: 16%;
+  margin-left: 0%;
+}
+
+.copyright, .small {
+  font-size: 70%;
+  line-height: 200%;
+}

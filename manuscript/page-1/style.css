@@ -1,0 +1,41 @@
+body {
+	background-color: #89c9cc;
+  font: 6vw/1.0 'ABeeZee', sans-serif;
+}
+
+p {
+  text-align: center;
+}
+
+img {
+	width: 90%;
+  margin-top: 10vw;
+  border: solid 12px white;
+}
+
+.frontText {
+  font-size: 4vw;
+  line-height: 120%;
+  margin-top: 12vw;
+  margin-bottom: 5vw;
+}
+
+.frontSplash {
+  align-self: flex-end;
+	width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin-top: auto;*/
+}
+
+.big {
+  font-size: 130%;
+  line-height: 120%;
+  margin-top: 3vw;
+}
+
+.small {
+  font-size: 85%;
+  margin-top: 2vw;
+  margin-bottom: 10vw;
+}
