@@ -1,0 +1,40 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  line-height: 3.5vw;
+  list-style: outside none none;
+  margin: 0;
+}
+
+a {
+  background: #fff7ec;
+  float: left;
+  width: 90%;
+  clear: both;
+  text-decoration: none;
+  color: #555;
+  margin: .1vw 0;
+  padding: .7vw 5%;
+  -webkit-border-radius: 1vw;
+  -moz-border-radius: 1vw;
+  -o-border-radius: 1vw;
+  -ms-border-radius: 1vw;
+  border-radius: 1vw;
+}
+
+a:hover {
+  background: #f2fe9f;
+  color: #000;
+  float: left;
+  width: 90%;
+  clear: both;
+  text-decoration: none;
+}
+
+a span {
+  float: right;
+  font-size: 80%;
+}
