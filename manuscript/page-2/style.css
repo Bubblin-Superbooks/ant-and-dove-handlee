@@ -8,3 +8,7 @@ img {
 img:hover {
     border-color: blue;
 }
+
+.inner {
+  margin: auto;
+}

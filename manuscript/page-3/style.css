@@ -7,7 +7,16 @@ img {
   margin-left: 0%;
 }
 
+p {
+  margin-top: 5vw;
+}
+
 .copyright, .small {
   font-size: 70%;
   line-height: 200%;
+}
+
+.inner {
+  margin: auto;
+  width: 95%;
 }

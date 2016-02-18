@@ -5,11 +5,12 @@ body {
 
 p {
   text-align: center;
+  margin-top: 5vw;
 }
 
 img {
 	width: 100%;
-  margin-top: 10vw;
+  margin-top: 30vw;
   /*border: solid 12px white;*/
 }
 
@@ -32,6 +33,11 @@ img {
   font-size: 130%;
   line-height: 120%;
   margin-top: 3vw;
+}
+
+.inner {
+  margin: auto;
+  width: 98%;
 }
 
 .small {
