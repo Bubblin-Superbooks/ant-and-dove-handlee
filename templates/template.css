@@ -33,8 +33,9 @@ p {
 }
 
 img {
-  width: 80%;
-  margin: auto;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .backText {
@@ -54,7 +55,10 @@ img {
 }
 
 .inner {
-  margin: auto;
+  margin-top: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
   width: 98%;
 }
 
@@ -63,8 +67,8 @@ img {
   display: flex !important;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
   justify-content: center;
 }
 
