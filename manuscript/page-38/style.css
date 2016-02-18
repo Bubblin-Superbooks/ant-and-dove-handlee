@@ -1,0 +1,20 @@
+h3 {
+  margin-bottom: 8vw;
+}
+
+p {
+  /*font-size: 150%;
+  line-height: 150%;*/
+}
+
+.ears {
+  width: 20vw;
+  /*margin: 10%;*/
+}
+
+.earsIcon {
+  width: 10vw;
+	margin-top: auto;
+	margin-bottom: auto;
+  margin-right: 5%;
+}

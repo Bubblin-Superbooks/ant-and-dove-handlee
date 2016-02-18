@@ -1,18 +1,41 @@
-body {
-	background-color: #89c9cc;
+canvas {
+  background: #222;
+  width: 80vw;
+  height: calc(80vw * 3 / 4);
 }
 
-img {
-	width: 60%;
-  margin-top: 20vw;
-  border: solid 12px white;
+video {
+  width: 80vw;
+  height: calc(80vw * 3 / 4);
 }
 
-.backText {
-  font: 4vw/1.3;
+.ears {
+  width: 25vw;
+  margin: 10%;
 }
 
-.inner {
-  margin: auto;
-  width: 80%;
+.hidden {
+  display: none;
+  width: 100%;
+}
+
+.parent {
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+
+#videoDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 0;
+}
+
+#canvasDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 1;
 }

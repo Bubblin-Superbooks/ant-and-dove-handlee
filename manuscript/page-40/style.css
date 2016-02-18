@@ -1,0 +1,41 @@
+canvas {
+  background: #222;
+  width: 80vw;
+  height: calc(80vw * 3 / 4);
+}
+
+video {
+  width: 80vw;
+  height: calc(80vw * 3 / 4);
+}
+
+.ears {
+  width: 25vw;
+  margin: 10%;
+}
+
+.hidden {
+  display: none;
+  width: 100%;
+}
+
+.parent {
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+
+#videoDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 0;
+}
+
+#canvasDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 1;
+}

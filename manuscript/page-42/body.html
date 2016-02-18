@@ -1,9 +1,15 @@
+<audio id="saying-alphabet">
+  <source src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/sounds/saying-the-alphabet.ogg" type="audio/ogg">
+  <source src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/sounds/saying-the-alphabet.m4a" type="audio/aac">
+</audio>
+
 <div class="leaf flex">
-  <div class="inner justify">
-    <p class="backText turnoff">The land is dry and Little Ant is very thirsty. He goes to the river for a drink and is swept away.
-      White Dove comes to the rescue and saves Little Ant’s life. How will Little Ant ever repay Dove for his life?</p>
-  </div>
   <div class="inner center">
-    <img src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/back.jpg"/>
-  </div>
+    <h3>Make a story drama</h3>
+    <div><img class="ears turnoff" onclick="playAudio('saying-alphabet')" src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/images/big-ears.png"/></div>
+    <div class="parent turnoff">
+      <div id="videoDiv1"><video id="video1" onclick="snap('canvasDiv1', 'canvas1');"></video></div>
+      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo('canvasDiv1', 'canvas1', 'video1');"></canvas></div>
+    </div>
+	</div>
 </div>

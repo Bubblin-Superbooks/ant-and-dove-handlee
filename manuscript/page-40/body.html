@@ -1,6 +1,15 @@
-<div class="leaf flex" >
+<audio id="saying-alphabet">
+  <source src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/sounds/saying-the-alphabet.ogg" type="audio/ogg">
+  <source src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/sounds/saying-the-alphabet.m4a" type="audio/aac">
+</audio>
+
+<div class="leaf flex">
   <div class="inner center">
-      <img src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pg27.jpg"/>
-      <p class="turnoff">White Dove was startled and flew away to safety.</p>
-  </div>
+    <h3>Draw Pictures</h3>
+    <div><img class="ears turnoff" onclick="playAudio('saying-alphabet')" src="https://raw.githubusercontent.com/craigleat/letters-have-names-book/master/assets/images/big-ears.png"/></div>
+    <div class="parent turnoff">
+      <div id="videoDiv1"><video id="video1" onclick="snap('canvasDiv1', 'canvas1');"></video></div>
+      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo('canvasDiv1', 'canvas1', 'video1');"></canvas></div>
+    </div>
+	</div>
 </div>
