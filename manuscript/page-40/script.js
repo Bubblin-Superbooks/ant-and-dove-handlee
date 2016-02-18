@@ -6,11 +6,12 @@ navigator.getMedia = (navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 var cdnWait = setInterval(dbLoad, 3000);
+var pageRef = 'page-40';
 
 function dbLoad(){
-  if (dbase = localforage.createInstance({name: "letters-have-names"})){
+  if (dbase = localforage.createInstance({name: "ant-and-dove"})){
     clearInterval(cdnWait);
-    dbase.getItem('pg11canvas1', function(err, imgData){
+    dbase.getItem(pageRef + 'canvas1', function(err, imgData){
       if (imgData) {
         canvas = document.getElementById('canvas1');
         canvas.height = Math.round(canvas.width*3/4);
@@ -29,7 +30,7 @@ function snap(canvasDivId, canvasId) {
     drawImage(video, 0, 0, canvas.width, canvas.height);
   track.stop();
   var canvasPx = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height);
-  dbase.setItem('pg11' + canvasId, canvasPx, function() {
+  dbase.setItem(pageRef + canvasId, canvasPx, function() {
   });
 }
 

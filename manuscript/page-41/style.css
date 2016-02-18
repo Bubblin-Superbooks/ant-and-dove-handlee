@@ -9,6 +9,14 @@ video {
   height: calc(75vw * 3 / 4);
 }
 
+.inner {
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 80%;
+}
+
 .parent1 {
   position: relative;
   width: 100%;
