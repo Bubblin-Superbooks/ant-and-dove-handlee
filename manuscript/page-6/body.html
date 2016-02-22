@@ -1,11 +1,11 @@
-<audio id="tell-the-story">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/tell-the-story.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/tell-the-story.m4a" type="audio/aac">
-</audio>
-
 <div class="leaf flex">
   <div class="inner center">
     <h3>Tell the story</h3>
-    <div><img class="ears turnoff" onclick="playAudio('tell-the-story')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/></div>
+    <audio class="turnoff" id="tell-the-story" controls>
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/tell-the-story.ogg" type="audio/ogg">
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/tell-the-story.m4a" type="audio/aac">
+    </audio>
+    <button class="turnoff" onclick="playAudio('tell-the-story')">Play</button>
+    <button class="turnoff" onclick="pauseAudio('tell-the-story')">Pause</button>
 	</div>
 </div>

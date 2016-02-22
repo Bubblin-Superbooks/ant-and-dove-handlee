@@ -1,0 +1,62 @@
+canvas {
+  background: #222;
+  width: 75vw;
+  height: calc(75vw * 3 / 4);
+}
+
+video {
+  width: 75vw;
+  height: calc(75vw * 3 / 4);
+}
+
+.inner {
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 80%;
+}
+
+.parent1 {
+  position: relative;
+  width: 100%;
+  top: -1vh;
+}
+
+.parent2 {
+  top: calc(75vw * 3 / 4 + 4vh);
+  position: relative;
+  width: 100%;
+}
+
+#videoDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 0;
+}
+
+#canvasDiv1 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 1;
+}
+
+#videoDiv2 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 0;
+}
+
+#canvasDiv2 {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+  left: 0vw;
+  z-index: 1;
+}

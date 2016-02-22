@@ -1,29 +1,15 @@
-<audio id="learn-new-words">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/learn-new-words.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/learn-new-words.m4a" type="audio/aac">
-</audio>
-<audio id="dove">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/dove.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/dove.m4a" type="audio/aac">
-</audio>
-<audio id="ouch">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ouch.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ouch.m4a" type="audio/aac">
-</audio>
-<audio id="slingshot">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/slingshot.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/slingshot.m4a" type="audio/aac">
-</audio>
-
 <div class="leaf flex">
   <div class="inner center">
     <h3>Learn new words</h3>
-    <div><img class="ears turnoff" onclick="playAudio('learn-new-words')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/></div>
-    <p><img class="earsIcon turnoff" onclick="playAudio('dove')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/>
-       Dove</p>
-    <p><img class="earsIcon turnoff" onclick="playAudio('ouch')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/>
-       Ouch!</p>
-    <p><img class="earsIcon turnoff" onclick="playAudio('slingshot')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/>
-       slingshot</p>
+    <audio class="turnoff" id="listen-to-story" controls>
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.m4a" type="audio/aac">
+    </audio>
+    <button class="turnoff" onclick="playAudio('listen-to-story')">Play</button>
+    <button class="turnoff" onclick="pauseAudio('listen-to-story')">Pause</button>
+    <p>Dove</p>
+    <canvas class="turnoff" id="canvas1" width="2000" height="1250"></canvas>
+    <button class="turnoff" onclick="clearCanvas('canvas1')">Clear</button>
+    <button class="turnoff" onclick="saveCanvas('canvas1')">Save</button>
 	</div>
 </div>

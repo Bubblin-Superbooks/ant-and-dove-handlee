@@ -1,6 +1,14 @@
-<div class="leaf flex" >
+<div class="leaf flex">
   <div class="inner center">
-      <img src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pg5.jpg"/>
-      <p class="turnoff">“If I don’t drink, I will die,” cried Little Ant. “I must go to the river I have heard about.”</p>
-  </div>
+    <audio class="turnoff" id="listen-to-story" controls>
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.m4a" type="audio/aac">
+    </audio>
+    <button class="turnoff" onclick="playAudio('listen-to-story')">Play</button>
+    <button class="turnoff" onclick="pauseAudio('listen-to-story')">Pause</button>
+    <p>startled</p>
+    <canvas class="turnoff" id="canvas1" width="2000" height="1250"></canvas>
+    <button class="turnoff" onclick="clearCanvas('canvas1')">Clear</button>
+    <button class="turnoff" onclick="saveCanvas('canvas1')">Save</button>
+	</div>
 </div>
