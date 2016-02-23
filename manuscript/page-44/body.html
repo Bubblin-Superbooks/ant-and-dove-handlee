@@ -1,20 +1,20 @@
-<audio id="ques1">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ques1.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ques1.m4a" type="audio/aac">
-</audio>
-<audio id="ques2">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ques2.ogg" type="audio/ogg">
-  <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/ques2.m4a" type="audio/aac">
-</audio>
-
 <div class="leaf flex">
   <div class="inner center">
     <h3>Answer questions</h3>
-    <div class="left">
-      <p><img class="earsIcon turnoff" onclick="playAudio('ques1')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/>
-         Why was Little Ant looking for the river?</p>
-      <p><img class="earsIcon turnoff" onclick="playAudio('ques2')" src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/big-ears.png"/>
-         How did Little Ant feel when he fell into the river?</p>
-    </div>
+    <audio class="turnoff" id="ques1" controls>
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/question-1.ogg" type="audio/ogg">
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/question-1.m4a" type="audio/aac">
+    </audio>
+    <button class="turnoff" onclick="playAudio('ques1')">Play</button>
+    <button class="turnoff" onclick="pauseAudio('ques1')">Pause</button>
+    <p>Why was Little Ant looking for the river?</p>
+    <br><br>
+    <audio class="turnoff" id="ques2" controls>
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/question-2.ogg" type="audio/ogg">
+      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/question-2.m4a" type="audio/aac">
+    </audio>
+    <button class="turnoff" onclick="playAudio('ques2')">Play</button>
+    <button class="turnoff" onclick="pauseAudio('ques2')">Pause</button>
+    <p>How did Little Ant feel when he fell into the river?</p>
 	</div>
 </div>

@@ -6,7 +6,7 @@ navigator.getMedia = (navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 var cdnWait = setInterval(dbLoad, 3000);
-var pageRef = 'page-41';
+var pageRef = 'page-47';
 
 function dbLoad(){
   if (dbase = localforage.createInstance({name: "ant-and-dove"})){

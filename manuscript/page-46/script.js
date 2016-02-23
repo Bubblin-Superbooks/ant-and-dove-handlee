@@ -6,7 +6,7 @@ navigator.getMedia = (navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 var cdnWait = setInterval(dbLoad, 3000);
-var pageRef = 'page-40';
+var pageRef = 'page-46';
 
 function dbLoad(){
   if (dbase = localforage.createInstance({name: "ant-and-dove"})){
@@ -66,4 +66,9 @@ function grabVideo(canvasDivId, canvasId, videoId) {
 function playAudio(id) {
   var someNoise = document.getElementById(id);
     someNoise.play();
+}
+
+function pauseAudio(id) {
+  var someNoise = document.getElementById(id);
+    someNoise.pause();
 }
