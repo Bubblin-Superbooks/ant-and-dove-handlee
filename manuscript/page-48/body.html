@@ -1,10 +1,12 @@
 <div class="leaf flex">
   <div class="inner center">
     <h3>Act the story</h3>
-    <audio class="turnoff" id="act-the-story" controls>
-      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
-      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/act-the-story.m4a" type="audio/aac">
-    </audio>
+    <div class="fixedHeight">
+      <audio class="turnoff" id="act-the-story" controls>
+        <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/act-the-story.m4a" type="audio/aac">
+      </audio>
+    </div>
     <button class="turnoff" onclick="playAudio('act-the-story')">Play</button>
     <button class="turnoff" onclick="pauseAudio('act-the-story')">Pause</button>
     <div class="parent turnoff">

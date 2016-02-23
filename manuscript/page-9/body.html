@@ -1,10 +1,12 @@
 <div class="leaf flex">
   <div class="inner center">
     <h3>&nbsp;</h3>
-    <audio class="turnoff" id="listen-to-story" controls>
-      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
-      <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.m4a" type="audio/aac">
-    </audio>
+    <div class="fixedHeight">
+      <audio class="turnoff" id="listen-to-story" controls>
+        <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.m4a" type="audio/aac">
+      </audio>
+    </div>  
     <button class="turnoff" onclick="playAudio('listen-to-story')">Play</button>
     <button class="turnoff" onclick="pauseAudio('listen-to-story')">Pause</button>
     <p>Ouch!</p>
