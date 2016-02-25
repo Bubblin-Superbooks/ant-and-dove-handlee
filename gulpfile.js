@@ -1,9 +1,24 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
-var concat = require('gulp-concat');
 var handlebars = require('gulp-compile-handlebars');
 var fs = require('fs');
 var path = require('path');
+
+// Gulp plugins
+var concat = require('gulp-concat');
+var gulpif = require('gulp-if');
+
+// HTML preprocessors
+var haml = require('gulp-haml');
+var markdown = require('gulp-markdown');
+
+// Style preprocessors
+var sass = require('gulp-sass');
+var less = require('gulp-less');
+var stylus = require('gulp-stylus');
+var postcss = require('gulp-postcss');
+
+// JavaScript preprocessors
 
 gulp.task('watchBook', function() {
   browserSync.init({
@@ -24,7 +39,7 @@ gulp.task('watchBook', function() {
         var newPaths = newPagePath.split(path.sep),
           newPage = newPaths[newPaths.length - 1] === '' ? newPaths[newPaths.length - 2] : newPaths[newPaths.length - 1];
 
-        gulp.src(path.join(newPagePath,'*'))
+        gulp.src(path.join(newPagePath, '*'))
           .pipe(gulp.dest(path.join("build", "manuscript", newPage)))
           .on('end', function() {
             renderPage(newPage);
@@ -37,7 +52,14 @@ gulp.task('watchBook', function() {
           page = paths[paths.length - 1];
 
         gulp.src(path.join(pagePath, '*'))
-          .pipe(gulp.dest(path.join('build', 'manuscript', page)))
+          .pipe(gulpif(/[.]haml$/, haml()))
+          .pipe(gulpif(/[.]md$/, markdown()))
+
+        .pipe(gulpif(/[.]scss|sass$/, sass()))
+          .pipe(gulpif(/[.]less$/, less()))
+          .pipe(gulpif(/[.]styl$/, stylus()))
+
+        .pipe(gulp.dest(path.join('build', 'manuscript', page)))
           .on('end', function() {
             renderPage(page);
           });
@@ -46,15 +68,45 @@ gulp.task('watchBook', function() {
     }
   });
 
-  gulp.watch(path.join('templates', '**.*'), function(obj){ 
+  gulp.watch(path.join('templates', '**.*'), function(obj) {
     gulp.start('renderBook');
   });
 
 });
 
 gulp.task('pages', function() {
-  return gulp.src(path.join('manuscript', '*', '*.+(js|css|html)'))
+
+
+  // gulp.src(path.join('manuscript', '*', '*.+(haml)'))
+  //   .pipe(haml())
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+
+  // gulp.src(path.join('manuscript', '*', '*.+(md)'))
+  //   .pipe(markdown())
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+
+  // gulp.src(path.join('manuscript', '*', '*.+(scss|sass)'))
+  //   .pipe(sass())
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+
+  // gulp.src(path.join('manuscript', '*', '*.+(less)'))
+  //   .pipe(less())
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+
+  // gulp.src(path.join('manuscript', '*', '*.+(styl)'))
+  //   .pipe(stylus())
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+
+  // return gulp.src(path.join('manuscript', '*', '*.+(js|css|html)'))
+  //   .pipe(gulp.dest(path.join('build', 'manuscript')));
+  return gulp.src(path.join('manuscript', '*', '*'))
+    .pipe(gulpif(/[.]haml$/, haml()))
+    .pipe(gulpif(/[.]md$/, markdown()))
+    .pipe(gulpif(/[.]scss|sass$/, sass()))
+    .pipe(gulpif(/[.]less$/, less()))
+    .pipe(gulpif(/[.]styl$/, stylus()))
     .pipe(gulp.dest(path.join('build', 'manuscript')));
+
 });
 
 gulp.task('templates', function() {
@@ -84,7 +136,7 @@ function renderPage(page) {
     scriptPath = path.join('.', 'build', 'manuscript', page, "script.js"),
     stylePath = path.join('.', 'build', 'manuscript', page, "style.css"),
     templateStylePath = path.join('.', 'templates', "template.css");
-    templateHeadPath = path.join('.', 'templates', "head.html");
+  templateHeadPath = path.join('.', 'templates', "head.html");
 
   var
     bodyContent = '',
@@ -132,7 +184,7 @@ function renderPage(page) {
 
 
 gulp.task('indexPage', function() {
-  
+
   var book = require(path.join(__dirname, 'crust', 'plugins', 'length.js'));
   var bookLength = book.length();
   var contentString = '';

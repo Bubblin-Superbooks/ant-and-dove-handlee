@@ -1,27 +1,33 @@
 {
-  "name": "ant-and-dove-book",
-  "version": "0.0.2",
-  "description": "<punchLine> ",
+  "name": "How Ant saved Dove",
+  "version": "0.0.1",
+  "description": "A first sentences book with reading, writing, listening and telling activities",
   "keywords": [
     "superbook",
     "bookiza"
   ],
-  "author": "< firstName middleName lastName <your@email.com> (https://example.com)>",
-  "license": "ISC",
-  "homepage": "http://bookiza.io",
-  "main": "index.js",
+  "author": "Craig Leat <craig.leat@gmail.com> (https://bubbl.in/craigleat-craig-leat)",
+  "license": "CC-BY 4.0 International",
+  "homepage": "https://bubbl.in/craigleat-craig-leat",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourbook/book-name-url"
+    "url": "https://github.com/craigleat/ant-and-dove-book"
   },
   "dependencies": {
     "browser-sync": "2.10.1",
     "gulp": "3.9.0",
     "gulp-compile-handlebars": "0.6.1",
     "gulp-concat": "2.6.0",
+    "gulp-haml": "0.1.6",
+    "gulp-if": "2.0.0",
+    "gulp-less": "3.0.5",
+    "gulp-markdown": "1.2.0",
+    "gulp-postcss": "6.1.0",
+    "gulp-sass": "2.2.0",
+    "gulp-stylus": "2.3.0",
     "js-cookie": "2.1.0",
     "path": "0.12.7",
-    "shelljs": "0.5.3"
+    "shelljs": "0.6.0"
   },
   "book_id": 273
 }
