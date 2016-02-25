@@ -4,11 +4,7 @@ var pen = false;
 var styleBorderLeft, styleBorderTop;
 var offsetX = offsetY = displayX = displayY = lastX = lastY = 0;
 var dbase;
-/* Only needed when localforage is loaded async via CDN */
 var cdnWait = setInterval(dbLoad, 3000);
-/*TODO: can the page name be retrieved via JS?
-* This gets out of sync when you add or remove pages from the book.
-*/
 var pageRef = 'page-8';
 
 function playAudio(id) {
@@ -45,7 +41,6 @@ function penDown(e) {
   e.preventDefault();
   pen = true;
   if (e.targetTouches) {
-    /* only respond if drawing with a single finger */
     if (e.targetTouches.length == 1) {
       getPen(e);
     }
@@ -63,7 +58,6 @@ function penUp(e) {
 function getPen(e) {
   e.preventDefault();
   if (e.targetTouches) {
-    /* Only allow drawing with a single finger */
     if (e.targetTouches.length == 1) {
       var touch = e.targetTouches.item(0);
       displayX = touch.pageX - offsetX;
@@ -90,7 +84,6 @@ function drawSomething() {
     lastX = modelX;
     lastY = modelY;
   } else {
-    /* Use coarse rendering to improve performance */
     if (dist(lastX, lastY, modelX, modelY) > 20) {
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
