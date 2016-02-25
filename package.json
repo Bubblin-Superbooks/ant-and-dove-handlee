@@ -1,1 +1,27 @@
-{"name":"ant-and-dove-book","version":"0.0.2","description":"<punchLine> ","keywords":["superbook","bookiza"],"author":"< firstName middleName lastName <your@email.com> (https://example.com)>","license":"ISC","homepage":"http://bookiza.io","main":"index.js","repository":{"type":"git","url":"git+https://github.com/yourbook/book-name-url"},"dependencies":{"browser-sync":"2.10.1","gulp":"3.9.0","gulp-compile-handlebars":"0.6.1","gulp-concat":"2.6.0","js-cookie":"2.1.0","path":"0.12.7","shelljs":"0.5.3"},"book_id":273}
+{
+  "name": "ant-and-dove-book",
+  "version": "0.0.2",
+  "description": "<punchLine> ",
+  "keywords": [
+    "superbook",
+    "bookiza"
+  ],
+  "author": "< firstName middleName lastName <your@email.com> (https://example.com)>",
+  "license": "ISC",
+  "homepage": "http://bookiza.io",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourbook/book-name-url"
+  },
+  "dependencies": {
+    "browser-sync": "2.10.1",
+    "gulp": "3.9.0",
+    "gulp-compile-handlebars": "0.6.1",
+    "gulp-concat": "2.6.0",
+    "js-cookie": "2.1.0",
+    "path": "0.12.7",
+    "shelljs": "0.5.3"
+  },
+  "book_id": 273
+}
