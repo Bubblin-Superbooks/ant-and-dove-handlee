@@ -11,6 +11,7 @@ function playAudio(id) {
   var someNoise = document.getElementById(id);
     someNoise.play();
 }
+
 function pauseAudio(id) {
   var someNoise = document.getElementById(id);
     someNoise.pause();
@@ -127,6 +128,5 @@ canvas.addEventListener("touchstart", penDown, false);
 canvas.addEventListener("touchend", penUp, false);
 canvas.addEventListener("touchcancel", penUp, false);
 canvas.addEventListener("touchmove", getPen, false);
+window.addEventListener("load", offsetCalcs, false);
 window.addEventListener("resize", offsetCalcs, false);
-
-offsetCalcs();
