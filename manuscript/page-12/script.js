@@ -1,11 +1,11 @@
 var canvas = document.getElementById("canvas1");
 var ctx = canvas.getContext("2d");
-var pen = false;
+var windowLoaded = pen = false;
 var styleBorderLeft, styleBorderTop;
 var offsetX = offsetY = displayX = displayY = lastX = lastY = 0;
 var dbase;
-var cdnWait = setInterval(dbLoad, 3000);
 var pageRef = 'page-12';
+var cdnWait = setInterval(dbLoad, 3000);
 
 function playAudio(id) {
   var someNoise = document.getElementById(id);
@@ -35,17 +35,20 @@ function offsetCalcs() {
   }
   offsetX += stylePaddingLeft + styleBorderLeft + htmlLeft;
   offsetY += stylePaddingTop + styleBorderTop + htmlTop;
+  windowLoaded = true;
 }
 
 function penDown(e) {
-  e.preventDefault();
-  pen = true;
-  if (e.targetTouches) {
-    if (e.targetTouches.length == 1) {
+  if (windowLoaded) {
+    e.preventDefault();
+    pen = true;
+    if (e.targetTouches) {
+      if (e.targetTouches.length == 1) {
+        getPen(e);
+      }
+    } else {
       getPen(e);
     }
-  } else {
-    getPen(e);
   }
 }
 
@@ -56,19 +59,21 @@ function penUp(e) {
 }
 
 function getPen(e) {
-  e.preventDefault();
-  if (e.targetTouches) {
-    if (e.targetTouches.length == 1) {
-      var touch = e.targetTouches.item(0);
-      displayX = touch.pageX - offsetX;
-      displayY = touch.pageY - offsetY;
+  if (windowLoaded) {
+    e.preventDefault();
+    if (e.targetTouches) {
+      if (e.targetTouches.length == 1) {
+        var touch = e.targetTouches.item(0);
+        displayX = touch.pageX - offsetX;
+        displayY = touch.pageY - offsetY;
+      }
+    } else {
+      displayX = e.pageX - offsetX;
+      displayY = e.pageY - offsetY;
     }
-  } else {
-    displayX = e.pageX - offsetX;
-    displayY = e.pageY - offsetY;
-  }
-  if (pen) {
-    drawSomething();
+    if (pen) {
+      drawSomething();
+    }
   }
 }
 
@@ -100,12 +105,14 @@ function dist(a, b, c, d) {
 }
 
 function clearCanvas(canvasId) {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  saveCanvas(canvasId);
+  if (windowLoaded) {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    saveCanvas(canvasId);
+  }
 }
 
 function dbLoad(){
-  if (dbase = localforage.createInstance({name: "ant-and-dove"})){
+  if ((dbase = localforage.createInstance({name: "ant-and-dove"})) && (windowLoaded)) {
     clearInterval(cdnWait);
     dbase.getItem(pageRef + 'canvas1', function(err, imgData){
       if (imgData) {
@@ -116,11 +123,15 @@ function dbLoad(){
 }
 
 function saveCanvas(canvasId) {
-  var canvasPx = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  dbase.setItem(pageRef + canvasId, canvasPx, function() {
-  });
+  if (windowLoaded) {
+    var canvasPx = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    dbase.setItem(pageRef + canvasId, canvasPx, function() {
+    });
+  }
 }
 
+window.addEventListener("load", offsetCalcs, false);
+window.addEventListener("resize", offsetCalcs, false);
 canvas.addEventListener("mousedown", penDown, false);
 canvas.addEventListener("mouseup", penUp, false);
 canvas.addEventListener("mousemove", getPen, false);
@@ -128,5 +139,3 @@ canvas.addEventListener("touchstart", penDown, false);
 canvas.addEventListener("touchend", penUp, false);
 canvas.addEventListener("touchcancel", penUp, false);
 canvas.addEventListener("touchmove", getPen, false);
-window.addEventListener("load", offsetCalcs, false);
-window.addEventListener("resize", offsetCalcs, false);
