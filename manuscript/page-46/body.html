@@ -11,8 +11,8 @@
     <button class="turnoff" onclick="playAudio('draw-pictures')">Play</button>
     <button class="turnoff" onclick="pauseAudio('draw-pictures')">Pause</button>
     <div class="parent turnoff">
-      <div id="videoDiv1"><video id="video1" onclick="snap('canvasDiv1', 'canvas1');"></video></div>
-      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo('canvasDiv1', 'canvas1', 'video1');"></canvas></div>
+      <div id="videoDiv1"><video id="video1" onclick="snap(event, 'canvasDiv1', 'canvas1')"></video></div>
+      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo(event, 'canvasDiv1', 'canvas1', 'video1')"></canvas></div>
     </div>
 	</div>
 </div>

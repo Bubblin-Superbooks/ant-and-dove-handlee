@@ -1,12 +1,12 @@
 <div class="leaf flex">
   <div class="inner center">
     <div class="parent1 turnoff">
-      <div id="videoDiv1"><video id="video1" onclick="snap('canvasDiv1', 'canvas1');"></video></div>
-      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo('canvasDiv1', 'canvas1', 'video1');"></canvas></div>
+      <div id="videoDiv1"><video id="video1" onclick="snap(event, 'canvasDiv1', 'canvas1')"></video></div>
+      <div id="canvasDiv1"><canvas id="canvas1" onclick="grabVideo(event, 'canvasDiv1', 'canvas1', 'video1')"></canvas></div>
     </div>
     <div class="parent2 turnoff">
-      <div id="videoDiv2"><video id="video2" onclick="snap('canvasDiv2', 'canvas2');"></video></div>
-      <div id="canvasDiv2"><canvas id="canvas2" onclick="grabVideo('canvasDiv2', 'canvas2', 'video2');"></canvas></div>
+      <div id="videoDiv2"><video id="video2" onclick="snap(event, 'canvasDiv2', 'canvas2')"></video></div>
+      <div id="canvasDiv2"><canvas id="canvas2" onclick="grabVideo(event, 'canvasDiv2', 'canvas2', 'video2')"></canvas></div>
     </div>
 	</div>
 </div>

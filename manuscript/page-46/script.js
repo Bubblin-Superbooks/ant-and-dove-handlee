@@ -5,8 +5,8 @@ navigator.getMedia = (navigator.getUserMedia ||
                       navigator.mozGetUserMedia ||
                       navigator.msGetUserMedia);
 
-var cdnWait = setInterval(dbLoad, 3000);
 var pageRef = 'page-46';
+var cdnWait = setInterval(dbLoad, 3000);
 
 function dbLoad(){
   if (dbase = localforage.createInstance({name: "ant-and-dove"})){
@@ -21,7 +21,8 @@ function dbLoad(){
   }
 }
 
-function snap(canvasDivId, canvasId) {
+function snap(e, canvasDivId, canvasId) {
+  e.preventDefault();
   canvas = document.getElementById(canvasId);
   canvasDiv = document.getElementById(canvasDivId);
   canvas.height = Math.round(canvas.width*3/4);
@@ -34,32 +35,33 @@ function snap(canvasDivId, canvasId) {
   });
 }
 
-function successCallback(stream) {
-  if (navigator.webkitGetUserMedia) {
-    if (window.URL) {
-      video.src = window.URL.createObjectURL(stream);
-    } else {
-      video.src = stream;
-    }
-  } else {
-    video.srcObject = stream;
-  }
-  track = stream.getTracks()[0];
-  canvasDiv.style.zIndex = "-1";
-  video.play();
-}
-
-function errorCallback(error) {
-  console.log('navigator.getUserMedia error: ', error);
-}
-
-function grabVideo(canvasDivId, canvasId, videoId) {
+function grabVideo(e, canvasDivId, canvasId, videoId) {
+  e.preventDefault();
   if(navigator.getMedia) {
     canvas = document.getElementById(canvasId);
     var constraints = {audio: false, video: {width: canvas.width, height: Math.round(canvas.width*3/4), facingMode: "environment"}};
+    window.URL = (window.URL || window.webkitURL);
     canvasDiv = document.getElementById(canvasDivId);
     video = document.getElementById(videoId);
-    navigator.getMedia(constraints, successCallback, errorCallback);
+    navigator.getMedia(constraints,
+      function (stream) {
+        if (navigator.webkitGetUserMedia) {
+          if (window.URL) {
+            video.src = window.URL.createObjectURL(stream);
+          } else {
+            video.src = stream;
+          }
+        } else {
+          video.srcObject = stream;
+        }
+        track = stream.getTracks()[0];
+        canvasDiv.style.zIndex = "-1";
+      },
+      function (error) {
+        console.log('navigator.getUserMedia error: ', error);
+      }
+    );
+    video.play();
   }
 }
 
