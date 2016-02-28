@@ -5,7 +5,7 @@ var styleBorderLeft, styleBorderTop;
 var offsetX = offsetY = displayX = displayY = lastX = lastY = 0;
 var dbase;
 var pageRef = 'page-12';
-var cdnWait = setInterval(dbLoad, 3000);
+var cdnWait = setInterval(dbLoad, 1000);
 
 function playAudio(id) {
   var someNoise = document.getElementById(id);
