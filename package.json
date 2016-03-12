@@ -7,11 +7,11 @@
     "bookiza"
   ],
   "author": "Craig Leat <craig.leat@gmail.com> (https://bubbl.in/craigleat-craig-leat)",
-  "license": "CC-BY 4.0 International",
+  "license": "CC-BY-4.0",
   "homepage": "https://bubbl.in/craigleat-craig-leat",
   "repository": {
     "type": "git",
-    "url": "https://github.com/craigleat/ant-and-dove-book"
+    "url": "https://github.com/craigleat/ant-and-dove-book.git"
   },
   "dependencies": {
     "browser-sync": "2.10.1",
