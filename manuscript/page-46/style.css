@@ -11,12 +11,12 @@ p {
 canvas {
   background: #222;
   width: 80vw;
-  height: calc(80vw * 3 / 4);
+  height: 60vw;
 }
 
 video {
   width: 80vw;
-  height: calc(80vw * 3 / 4);
+  height: auto;
 }
 
 .inner {
@@ -31,15 +31,15 @@ video {
 #videoDiv1 {
   position: absolute;
   width: 100%;
-  top: 0vh;
-  left: 0vw;
+  top: 0;
+  left: 0;
   z-index: 0;
 }
 
 #canvasDiv1 {
   position: absolute;
   width: 100%;
-  top: 0vh;
-  left: 0vw;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
