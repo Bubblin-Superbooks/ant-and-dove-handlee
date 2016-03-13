@@ -105,3 +105,17 @@ img {
 .left {
   text-align: left;
 }
+
+#canvas1 {
+  display: block;
+  margin-top:0vw;
+  margin-bottom: 1vw;
+  margin-left: auto;
+  margin-right: auto;
+  width: 99%;
+  height: auto;
+  border: 1px solid #c3c3c3;
+  background-color: #EEEEEE;
+  background-image:url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/stage.jpg);
+  cursor: url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pencil.cur), pointer;
+}
