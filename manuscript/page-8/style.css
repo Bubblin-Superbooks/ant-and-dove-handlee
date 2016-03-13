@@ -26,4 +26,6 @@ p {
   height: auto;
   border: 1px solid #c3c3c3;
 	background-color: #EEEEEE;
+  background-image:url(../../assets/images/stage.jpg);
+  cursor: url(../../assets/images/pencil.cur), pointer;
 }
