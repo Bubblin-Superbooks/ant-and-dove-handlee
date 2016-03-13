@@ -26,6 +26,6 @@ p {
   height: auto;
   border: 1px solid #c3c3c3;
 	background-color: #EEEEEE;
-  background-image:url(../../assets/images/stage.jpg);
-  cursor: url(../../assets/images/pencil.cur), pointer;
+  background-image:url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/stage.jpg);
+  cursor: url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pencil.cur), pointer;
 }
