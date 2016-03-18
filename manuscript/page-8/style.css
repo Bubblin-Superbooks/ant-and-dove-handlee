@@ -3,9 +3,9 @@ h3 {
 }
 
 p {
-  font: 10vw/1.0 'ABeeZee', sans-serif;
-  margin-top: 3vw;
-  margin-bottom: 0vw;
+  font: 12vw/1.0 'ABeeZee', sans-serif;
+  margin-top: 8vw;
+  margin-bottom: 1vw;
 }
 
 .inner {
@@ -14,4 +14,19 @@ p {
   margin-right: auto;
   margin-bottom: auto;
   width: 100%;
+}
+
+.fixedHeight {
+  width: 95%;
+}
+
+audio {
+  width: 85%;
+}
+
+#button1 {
+  position: absolute;
+  left: 1vw;
+  top: 22vw;
+  margin: 0;
 }

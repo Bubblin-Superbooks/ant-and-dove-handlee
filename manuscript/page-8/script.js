@@ -7,14 +7,18 @@ var dbase;
 var pageRef = 'page-8';
 var cdnWait = setInterval(dbLoad, 1000);
 
-function playAudio(id) {
-  var someNoise = document.getElementById(id);
+function playAudio(audioId, buttonId) {
+  var someNoise = document.getElementById(audioId);
+  var button = document.getElementById(buttonId);
+  if (button.innerHTML == "Play") {
     someNoise.play();
-}
-
-function pauseAudio(id) {
-  var someNoise = document.getElementById(id);
+    button.innerHTML = "Pause";
+    button.style.backgroundColor = "#ff1a1a";
+  } else {
     someNoise.pause();
+    button.innerHTML = "Play";
+    button.style.backgroundColor = "#4CAF50";
+  }
 }
 
 function offsetCalcs() {

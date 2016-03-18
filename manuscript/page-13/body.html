@@ -7,8 +7,7 @@
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/dew.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <button class="turnoff" onclick="playAudio('dew')">Play</button>
-    <button class="turnoff" onclick="pauseAudio('dew')">Pause</button>
+    <button id="button1" class="turnoff playButton" onclick="playAudio('dew', 'button1')">Play</button>
     <p>dew</p>
     <canvas class="turnoff" id="canvas1" width="2000" height="1250"></canvas>
     <button class="turnoff" onclick="clearCanvas('canvas1')">Clear</button>
