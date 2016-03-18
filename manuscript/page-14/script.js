@@ -118,7 +118,7 @@ function clearCanvas(canvasId) {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     saveCanvas(canvasId);
     button.style.opacity = "1";
-    button.style.cursor = "default";
+    button.style.cursor = "pointer";
   }
 }
 
@@ -133,9 +133,9 @@ function dbLoad(){
     var button2 = document.getElementById("button2");
     var button3 = document.getElementById("button3");
     button2.style.opacity = "1";
-    button2.style.cursor = "default";
+    button2.style.cursor = "pointer";
     button3.style.opacity = "1";
-    button3.style.cursor = "default";
+    button3.style.cursor = "pointer";
   }
 }
 
@@ -151,7 +151,7 @@ function saveCanvas(canvasId) {
     dbase.setItem(pageRef + canvasId, canvasPx, function() {
     });
     button3.style.opacity = "1";
-    button3.style.cursor = "default";
+    button3.style.cursor = "pointer";
   }
 }
 
