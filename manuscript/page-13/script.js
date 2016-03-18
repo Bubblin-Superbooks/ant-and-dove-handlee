@@ -10,14 +10,16 @@ var cdnWait = setInterval(dbLoad, 1000);
 function playAudio(audioId, buttonId) {
   var someNoise = document.getElementById(audioId);
   var button = document.getElementById(buttonId);
-  if (button.innerHTML == "Play") {
-    someNoise.play();
-    button.innerHTML = "Pause";
-    button.style.backgroundColor = "#ff1a1a";
-  } else {
-    someNoise.pause();
-    button.innerHTML = "Play";
-    button.style.backgroundColor = "#4CAF50";
+  if (someNoise.readyState == 4) {
+    if (button.innerHTML == "play") {
+      someNoise.play();
+      button.innerHTML = "pause";
+      button.style.backgroundColor = "#ff1a1a";
+    } else {
+      someNoise.pause();
+      button.innerHTML = "play";
+      button.style.backgroundColor = "#4CAF50";
+    }
   }
 }
 
