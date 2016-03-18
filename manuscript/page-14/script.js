@@ -130,6 +130,12 @@ function dbLoad(){
         ctx.putImageData(imgData, 0, 0);
       }
     });
+    var button2 = document.getElementById("button2");
+    var button3 = document.getElementById("button3");
+    button2.style.opacity = "1";
+    button2.style.cursor = "default";
+    button3.style.opacity = "1";
+    button3.style.cursor = "default";
   }
 }
 

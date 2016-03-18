@@ -30,3 +30,8 @@ audio {
   top: 9.5vw;
   margin: 0;
 }
+
+#button2, #button3 {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
