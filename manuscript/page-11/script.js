@@ -112,8 +112,13 @@ function dist(a, b, c, d) {
 
 function clearCanvas(canvasId) {
   if (windowLoaded) {
+    var button = document.getElementById("button2");
+    button.style.opacity = "0.6";
+    button.style.cursor = "not-allowed";
     ctx.clearRect(0,0,canvas.width,canvas.height);
     saveCanvas(canvasId);
+    button.style.opacity = "1";
+    button.style.cursor = "default";
   }
 }
 
@@ -130,9 +135,17 @@ function dbLoad(){
 
 function saveCanvas(canvasId) {
   if (windowLoaded) {
+    var button2 = document.getElementById("button2");
+    var button3 = document.getElementById("button3");
+    if (button2.style.opacity = "1") {
+      button3.style.opacity = "0.6";
+      button3.style.cursor = "not-allowed";
+    }
     var canvasPx = ctx.getImageData(0, 0, canvas.width, canvas.height);
     dbase.setItem(pageRef + canvasId, canvasPx, function() {
     });
+    button3.style.opacity = "1";
+    button3.style.cursor = "default";
   }
 }
 

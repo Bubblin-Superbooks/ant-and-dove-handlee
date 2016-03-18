@@ -100,6 +100,22 @@ img {
   text-align: left;
 }
 
+.canvasButton {
+  width: 15vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  margin: 2vw 2vw 2vw 2vw;
+  cursor: pointer;
+  font: 4vw/1.0 'ABeeZee', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 50%;
+}
+
 .playButton {
   width: 15vw;
   padding-top: 2vw;
