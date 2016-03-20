@@ -2,45 +2,39 @@
 
 body {
   font: 6vw/1.5 'ABeeZee', sans-serif;
-  margin: 0 0;
-  overflow: hidden; /* No reflow */
+  margin: 0;
+  overflow: hidden;
   color: black;
   background-color: #fff;
 }
 
-.fixedHeight {
-  width: 85%;
-  height: 15vw;
-  overflow: hidden;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-audio {
-  position: absolute;
-  width: 100%;
-  right: 0;
-  bottom: 0;
+canvas {
+  display: block;
+  margin: 0 auto 1vw auto;
+  width: 99%;
+  height: auto;
+  border: 1px solid #c3c3c3;
+  background-image:url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/stage.jpg);
+  cursor: url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pencil.cur), pointer;
 }
 
 h1 {
-  margin: 2vw 0;
+  margin: 2vw 0 0 0;
   padding:0;
 }
 
 h2 {
-  margin: 2vw 0;
+  margin: 2vw 0 0 0;
   padding:0;
 }
 
 h3 {
-  margin: 2vw 0;
+  margin: 2vw 0 0 0;
   padding:0;
 }
 
 h4 {
-  margin: 2vw 0;
+  margin: 2vw 0 0 0;
   padding:0;
 }
 
@@ -71,10 +65,7 @@ img {
 }
 
 .inner {
-  margin-top: 10vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
+  margin: 10vw auto auto auto;
   width: 80%;
 }
 
@@ -118,7 +109,7 @@ img {
   width: 15vw;
   padding-top: 2vw;
   padding-bottom: 2vw;
-  margin: 2vw 2vw 2vw 2vw;
+  margin: 2vw;
   cursor: pointer;
   font: 4vw/1.0 'ABeeZee', sans-serif;
   text-align: center;
@@ -128,33 +119,4 @@ img {
   background-color: #008CBA;
   border: none;
   border-radius: 50%;
-}
-
-.playButton {
-  width: 15vw;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
-  margin: 5vw 2vw 2vw 2vw;
-  cursor: pointer;
-  font: 4vw/1.0 'ABeeZee', sans-serif;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 50%;
-}
-
-canvas {
-  display: block;
-  margin-top:0vw;
-  margin-bottom: 1vw;
-  margin-left: auto;
-  margin-right: auto;
-  width: 99%;
-  height: auto;
-  border: 1px solid #c3c3c3;
-  background-image:url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/stage.jpg);
-  cursor: url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pencil.cur), pointer;
 }
