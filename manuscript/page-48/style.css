@@ -19,6 +19,23 @@ video {
   height: calc(80vw * 3 / 4);
 }
 
+audio {
+  width: 75%;
+}
+
+.fixedHeight {
+  border-radius: 10px;
+  border: 2px solid #c3c3c3;
+  background-color: #e6e6e6;
+}
+
+#button1 {
+  margin: 0;
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
 .inner {
   margin-top: 5vw;
 }

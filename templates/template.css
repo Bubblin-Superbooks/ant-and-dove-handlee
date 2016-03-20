@@ -9,7 +9,7 @@ body {
 }
 
 .fixedHeight {
-  width: 80%;
+  width: 85%;
   height: 15vw;
   overflow: hidden;
   position: relative;
@@ -100,6 +100,20 @@ img {
   text-align: left;
 }
 
+.audioButton {
+  width: 20%;
+  height: auto;
+  margin: 0 auto 0 auto;
+}
+
+.audioCanvas {
+  width: 100%;
+  height: auto;
+  border: none;
+  background-image: none;
+  cursor: pointer;
+}
+
 .canvasButton {
   width: 15vw;
   padding-top: 2vw;
@@ -120,7 +134,7 @@ img {
   width: 15vw;
   padding-top: 2vw;
   padding-bottom: 2vw;
-  margin: 2vw 2vw 2vw 2vw;
+  margin: 5vw 2vw 2vw 2vw;
   cursor: pointer;
   font: 4vw/1.0 'ABeeZee', sans-serif;
   text-align: center;
@@ -132,7 +146,7 @@ img {
   border-radius: 50%;
 }
 
-#canvas1 {
+canvas {
   display: block;
   margin-top:0vw;
   margin-bottom: 1vw;
@@ -141,7 +155,6 @@ img {
   width: 99%;
   height: auto;
   border: 1px solid #c3c3c3;
-  /*background-color: #EEEEEE;*/
   background-image:url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/stage.jpg);
   cursor: url(https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/images/pencil.cur), pointer;
 }

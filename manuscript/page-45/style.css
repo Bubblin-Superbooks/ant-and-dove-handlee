@@ -1,9 +1,9 @@
 h3 {
-  margin-bottom: 2vw;
+  margin-bottom: 5vw;
 }
 p {
-  margin-top: 3vw;
-  margin-bottom: 0vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
 
 .inner {
@@ -12,4 +12,21 @@ p {
   margin-right: auto;
   margin-bottom: auto;
   width: 80%;
+}
+
+audio {
+  width: 75%;
+}
+
+.fixedHeight {
+  border-radius: 10px;
+  border: 2px solid #c3c3c3;
+  background-color: #e6e6e6;
+}
+
+#button1 {
+  margin: 0;
+  position: absolute;
+  top: 23%;
+  left: 0;
 }

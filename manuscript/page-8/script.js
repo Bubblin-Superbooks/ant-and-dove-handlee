@@ -1,38 +1,113 @@
-var canvas = document.getElementById("canvas1");
-var ctx = canvas.getContext("2d");
+var canvas1 = { name: document.getElementById("canvas1"),
+                ctx: document.getElementById("canvas1").getContext("2d"),
+                styleBorderLeft: 0,
+                styleBorderTop: 0,
+                offsetX: 0,
+                offsetY: 0
+              };
+var canvas2 = { name: document.getElementById("canvas2"),
+                ctx: document.getElementById("canvas2").getContext("2d"),
+                styleBorderLeft: 0,
+                styleBorderTop: 0,
+                offsetX: 0,
+                offsetY: 0,
+                lastX: 0,
+                lastY: 0
+              };
 var windowLoaded = pen = false;
-var styleBorderLeft, styleBorderTop;
-var offsetX = offsetY = displayX = displayY = lastX = lastY = 0;
 var dbase;
 var pageRef = 'page-8';
 var cdnWait = setInterval(dbLoad, 1000);
 
-function playAudio(audioId, buttonId) {
-  var someNoise = document.getElementById(audioId);
-  var button = document.getElementById(buttonId);
-  if (someNoise.readyState == 4) {
-    if (button.innerHTML == "play") {
+window.addEventListener("load", offsetCalcs, false);
+window.addEventListener("resize", offsetCalcs, false);
+canvas2.name.addEventListener("mousedown", penDown, false);
+canvas2.name.addEventListener("mouseup", penUp, false);
+canvas2.name.addEventListener("mousemove", getPen, false);
+canvas2.name.addEventListener("touchstart", penDown, false);
+canvas2.name.addEventListener("touchend", penUp, false);
+canvas2.name.addEventListener("touchcancel", penUp, false);
+canvas2.name.addEventListener("touchmove", getPen, false);
+
+function drawButton(action) {
+  var ctx = canvas1.ctx;
+  ctx.font="140px ABeeZee";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  if (action == 'play') {
+    ctx.fillStyle = "#4CAF50";
+    ctx.beginPath();
+    ctx.arc(250,250,250,0,2*Math.PI);
+    ctx.fill();
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText("play",250,250);
+  } else {
+    ctx.fillStyle = "#ff1a1a";
+    ctx.beginPath();
+    ctx.arc(250,250,250,0,2*Math.PI);
+    ctx.fill();
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText("pause",250,250);
+  }
+}
+
+function progressMeter(e) {
+  var ctx = canvas1.ctx;
+  var someNoise = document.getElementById(e.target.id);
+  var progress;
+  ctx.lineWidth = "30";
+  progress = someNoise.currentTime/someNoise.duration*2*Math.PI - 0.5*Math.PI;
+  ctx.strokeStyle="#4dd2ff";
+  ctx.beginPath();
+  ctx.arc(250,250,235,1.5*Math.PI,progress);
+  ctx.stroke();
+}
+
+function playAudio(e, id) {
+  var displayX, displayY;
+  var someNoise = document.getElementById(id);
+  e.preventDefault();
+  someNoise.addEventListener("timeupdate", progressMeter, false);
+  if (e.targetTouches) {
+    if (e.targetTouches.length == 1) {
+      var touch = e.targetTouches.item(0);
+      displayX = touch.pageX - canvas1.offsetX;
+      displayY = touch.pageY - canvas1.offsetY;
+    }
+  } else {
+    displayX = e.pageX - canvas1.offsetX;
+    displayY = e.pageY - canvas1.offsetY;
+  }
+  var modelX = Math.round(displayX * (canvas1.name.width / (canvas1.name.offsetWidth - canvas1.styleBorderLeft * 2)));
+  var modelY = Math.round(displayY * (canvas1.name.height / (canvas1.name.offsetHeight - canvas1.styleBorderTop * 2)));
+  if ((someNoise.readyState >= 2) && (dist(modelX, modelY, 250, 250) <= 250)) {
+    if ((someNoise.currentTime == 0) || (someNoise.paused)) {
       someNoise.play();
-      button.innerHTML = "pause";
-      button.style.backgroundColor = "#ff1a1a";
+      drawButton('pause');
     } else {
       someNoise.pause();
-      button.innerHTML = "play";
-      button.style.backgroundColor = "#4CAF50";
+      drawButton('play');
     }
   }
 }
 
 function offsetCalcs() {
-  var stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingLeft'], 10) || 0;
-  var stylePaddingTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingTop'], 10) || 0;
-  styleBorderLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderLeftWidth'], 10) || 0;
-  styleBorderTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderTopWidth'], 10) || 0;
+  canvasOffset(canvas1);
+  canvasOffset(canvas2);
+  windowLoaded = true;
+  drawButton('play');
+}
+
+function canvasOffset(canvas) {
+  var stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas.name, null)['paddingLeft'], 10) || 0;
+  var stylePaddingTop = parseInt(document.defaultView.getComputedStyle(canvas.name, null)['paddingTop'], 10) || 0;
+  var styleBorderLeft = parseInt(document.defaultView.getComputedStyle(canvas.name, null)['borderLeftWidth'], 10) || 0;
+  var styleBorderTop = parseInt(document.defaultView.getComputedStyle(canvas.name, null)['borderTopWidth'], 10) || 0;
   var html = document.body.parentNode;
   var htmlTop = html.offsetTop;
   var htmlLeft = html.offsetLeft;
-  var element = canvas;
-  offsetX = offsetY = 0;
+  var element = canvas.name;
+  var offsetX = offsetY = 0;
   if (element.offsetParent !== undefined) {
       do {
           offsetX += element.offsetLeft;
@@ -41,7 +116,10 @@ function offsetCalcs() {
   }
   offsetX += stylePaddingLeft + styleBorderLeft + htmlLeft;
   offsetY += stylePaddingTop + styleBorderTop + htmlTop;
-  windowLoaded = true;
+  canvas.styleBorderLeft = styleBorderLeft;
+  canvas.styleBorderTop = styleBorderTop;
+  canvas.offsetX = offsetX;
+  canvas.offsetY = offsetY;
 }
 
 function penDown(e) {
@@ -61,47 +139,49 @@ function penDown(e) {
 function penUp(e) {
   e.preventDefault();
   pen = false;
-  lastX = lastY = 0;
+  canvas2.lastX = canvas2.lastY = 0;
 }
 
 function getPen(e) {
   if (windowLoaded) {
     e.preventDefault();
+    var displayX, displayY;
     if (e.targetTouches) {
       if (e.targetTouches.length == 1) {
         var touch = e.targetTouches.item(0);
-        displayX = touch.pageX - offsetX;
-        displayY = touch.pageY - offsetY;
+        displayX = touch.pageX - canvas2.offsetX;
+        displayY = touch.pageY - canvas2.offsetY;
       }
     } else {
-      displayX = e.pageX - offsetX;
-      displayY = e.pageY - offsetY;
+      displayX = e.pageX - canvas2.offsetX;
+      displayY = e.pageY - canvas2.offsetY;
     }
     if (pen) {
-      drawSomething();
+      drawSomething(displayX, displayY);
     }
   }
 }
 
-function drawSomething() {
-  var modelX = Math.round(displayX * (canvas.width / (canvas.offsetWidth - styleBorderLeft * 2)));
-  var modelY = Math.round(displayY * (canvas.height / (canvas.offsetHeight - styleBorderTop * 2)));
+function drawSomething(displayX, displayY) {
+  var modelX = Math.round(displayX * (canvas2.name.width / (canvas2.name.offsetWidth - canvas2.styleBorderLeft * 2)));
+  var modelY = Math.round(displayY * (canvas2.name.height / (canvas2.name.offsetHeight - canvas2.styleBorderTop * 2)));
+  var ctx = canvas2.ctx;
   ctx.lineWidth = "30";
   ctx.lineCap="round";
-  if ((lastX == 0) && (lastY == 0)) {
+  if ((canvas2.lastX == 0) && (canvas2.lastY == 0)) {
     ctx.beginPath();
     ctx.arc(modelX,modelY,15,0,2*Math.PI);
     ctx.fill();
-    lastX = modelX;
-    lastY = modelY;
+    canvas2.lastX = modelX;
+    canvas2.lastY = modelY;
   } else {
-    if (dist(lastX, lastY, modelX, modelY) > 20) {
+    if (dist(canvas2.lastX, canvas2.lastY, modelX, modelY) > 20) {
       ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
+      ctx.moveTo(canvas2.lastX, canvas2.lastY);
       ctx.lineTo(modelX, modelY);
       ctx.stroke();
-      lastX = modelX;
-      lastY = modelY;
+      canvas2.lastX = modelX;
+      canvas2.lastY = modelY;
     }
   }
 }
@@ -112,10 +192,11 @@ function dist(a, b, c, d) {
 
 function clearCanvas(canvasId) {
   if (windowLoaded) {
+    var ctx = canvas2.ctx;
     var button = document.getElementById("button2");
     button.style.opacity = "0.6";
     button.style.cursor = "not-allowed";
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,canvas2.name.width,canvas2.name.height);
     saveCanvas(canvasId);
     button.style.opacity = "1";
     button.style.cursor = "pointer";
@@ -124,8 +205,9 @@ function clearCanvas(canvasId) {
 
 function dbLoad(){
   if ((dbase = localforage.createInstance({name: "ant-and-dove"})) && (windowLoaded)) {
+    var ctx = canvas2.ctx;
     clearInterval(cdnWait);
-    dbase.getItem(pageRef + 'canvas1', function(err, imgData){
+    dbase.getItem(pageRef + 'canvas2', function(err, imgData){
       if (imgData) {
         ctx.putImageData(imgData, 0, 0);
       }
@@ -141,26 +223,17 @@ function dbLoad(){
 
 function saveCanvas(canvasId) {
   if (windowLoaded) {
+    var ctx = canvas2.ctx;
     var button2 = document.getElementById("button2");
     var button3 = document.getElementById("button3");
     if (button2.style.opacity = "1") {
       button3.style.opacity = "0.6";
       button3.style.cursor = "not-allowed";
     }
-    var canvasPx = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var canvasPx = ctx.getImageData(0, 0, canvas2.name.width, canvas2.name.height);
     dbase.setItem(pageRef + canvasId, canvasPx, function() {
     });
     button3.style.opacity = "1";
     button3.style.cursor = "pointer";
   }
 }
-
-window.addEventListener("load", offsetCalcs, false);
-window.addEventListener("resize", offsetCalcs, false);
-canvas.addEventListener("mousedown", penDown, false);
-canvas.addEventListener("mouseup", penUp, false);
-canvas.addEventListener("mousemove", getPen, false);
-canvas.addEventListener("touchstart", penDown, false);
-canvas.addEventListener("touchend", penUp, false);
-canvas.addEventListener("touchcancel", penUp, false);
-canvas.addEventListener("touchmove", getPen, false);

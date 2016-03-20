@@ -1,16 +1,17 @@
 <div class="leaf flex">
   <div class="inner center">
-    <div class="fixedHeight">
-      <audio class="turnoff" id="startled" controls>
+    <h3>&nbsp;</h3>
+    <div class="turnoff audioButton">
+      <audio id="startled">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/startled.ogg" type="audio/ogg">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/startled.m4a" type="audio/mp4">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/startled.mp3" type="audio/mpeg">
       </audio>
+      <canvas id="canvas1" class="audioCanvas" width="500" height="500" onclick="playAudio(event, 'startled')" ontouchstart="playAudio(event, 'startled')"></canvas>
     </div>
-    <button id="button1" class="turnoff playButton" onclick="playAudio('startled', 'button1')">play</button>
     <p>startled</p>
-    <canvas class="turnoff" id="canvas1" width="2000" height="1250"></canvas>
-    <button id="button2" class="turnoff canvasButton" onclick="clearCanvas('canvas1')">clear</button>
-    <button id="button3" class="turnoff canvasButton" onclick="saveCanvas('canvas1')">save</button>
+    <canvas class="turnoff" id="canvas2" width="2000" height="1250"></canvas>
+    <button id="button2" class="turnoff canvasButton" onclick="clearCanvas('canvas2')">clear</button>
+    <button id="button3" class="turnoff canvasButton" onclick="saveCanvas('canvas2')">save</button>
 	</div>
 </div>

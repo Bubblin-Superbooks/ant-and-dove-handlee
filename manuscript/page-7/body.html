@@ -1,13 +1,13 @@
 <div class="leaf flex">
   <div class="inner center">
     <h3>Listen to the story</h3>
-    <div class="fixedHeight">
-      <audio class="turnoff" id="listen-to-story" controls>
+    <div class="turnoff audioButton">
+      <audio id="listen-to-story">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.ogg" type="audio/ogg">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.m4a" type="audio/mp4">
         <source src="https://raw.githubusercontent.com/craigleat/ant-and-dove-book/master/assets/sounds/listen-to-story.mp3" type="audio/mpeg">
       </audio>
+      <canvas id="canvas1" class="audioCanvas" width="500" height="500" onclick="playAudio(event, 'listen-to-story')" ontouchstart="playAudio(event, 'listen-to-story')"></canvas>
     </div>
-    <button id="button1" class="turnoff playButton" onclick="playAudio('listen-to-story', 'button1')">Play</button>
 	</div>
 </div>
