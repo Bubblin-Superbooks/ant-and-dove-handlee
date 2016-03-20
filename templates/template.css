@@ -120,3 +120,35 @@ img {
   border: none;
   border-radius: 50%;
 }
+
+.fixedHeight {
+  width: 80%;
+  height: 15vw;
+  overflow: hidden;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+audio {
+  position: absolute;
+  width: 85%;
+  right: 0;
+  bottom: 0;
+}
+
+.playButton {
+  width: 15vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  margin: 5vw 2vw 2vw 2vw;
+  cursor: pointer;
+  font: 4vw/1.0 'ABeeZee', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 50%;
+}

@@ -14,6 +14,7 @@ var canvas2 = { name: document.getElementById("canvas2"),
                 lastX: 0,
                 lastY: 0
               };
+var noise1 = document.getElementById("noise1");
 var windowLoaded = pen = false;
 var dbase;
 var pageRef = 'page-14';
@@ -28,6 +29,11 @@ canvas2.name.addEventListener("touchstart", penDown, false);
 canvas2.name.addEventListener("touchend", penUp, false);
 canvas2.name.addEventListener("touchcancel", penUp, false);
 canvas2.name.addEventListener("touchmove", getPen, false);
+noise1.addEventListener("ended", playEnded, false);
+
+function playEnded(e) {
+  drawButton('play');
+}
 
 function drawButton(action) {
   var ctx = canvas1.ctx;
@@ -53,7 +59,7 @@ function drawButton(action) {
 
 function progressMeter(e) {
   var ctx = canvas1.ctx;
-  var someNoise = document.getElementById(e.target.id);
+  var someNoise = e.target;
   var progress;
   ctx.lineWidth = "30";
   progress = someNoise.currentTime/someNoise.duration*2*Math.PI - 0.5*Math.PI;

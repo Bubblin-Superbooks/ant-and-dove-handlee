@@ -2,9 +2,15 @@ var canvas = document.getElementById('canvas1');
 var ctx = canvas.getContext("2d");
 var someNoise, styleBorderLeft, styleBorderTop;
 var offsetX = offsetY = displayX = displayY = 0;
+var noise1 = document.getElementById("noise1");
 
 window.addEventListener("load", offsetCalcs, false);
 window.addEventListener("resize", offsetCalcs, false);
+noise1.addEventListener("ended", playEnded, false);
+
+function playEnded(e) {
+  drawButton('play');
+}
 
 function drawButton(action) {
   ctx.font="140px ABeeZee";
@@ -28,7 +34,6 @@ function drawButton(action) {
 }
 
 function progressMeter(e) {
-  /*console.log(e.target.id);*/
   var progress;
   ctx.lineWidth = "30";
   progress = someNoise.currentTime/someNoise.duration*2*Math.PI - 0.5*Math.PI;
@@ -81,11 +86,11 @@ function playAudio(e, id) {
   var modelY = Math.round(displayY * (canvas.height / (canvas.offsetHeight - styleBorderTop * 2)));
   if ((someNoise.readyState >= 2) && (dist(modelX, modelY, 250, 250) <= 250)) {
     if ((someNoise.currentTime == 0) || (someNoise.paused)) {
-      someNoise.play();
       drawButton('pause');
+      someNoise.play();
     } else {
-      someNoise.pause();
       drawButton('play');
+      someNoise.pause();
     }
   }
 }
