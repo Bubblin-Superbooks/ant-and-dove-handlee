@@ -2,21 +2,15 @@ a {color: #03c; text-decoration: none;}
 a:hover {color: #0ac; text-decoration: none;}
 
 body {
-  font-size: 4vw;
-}
-
-img {
-  width: 16%;
-  margin-left: 0%;
+  background: #e4dfb1;
+  margin: 0;
+  overflow: hidden;
+  color: #666;
+  font: 5vw/1 'Dekko', sans-serif;
 }
 
 p {
-  margin-top: 5vw;
-}
-
-.copyright, .small {
-  font-size: 70%;
-  line-height: 200%;
+  margin: 8vw 0 8vw 0;
 }
 
 .inner {
