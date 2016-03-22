@@ -1,16 +1,6 @@
-a {color: #03c; text-decoration: none;}
-a:hover {color: #0ac; text-decoration: none;}
-
-body {
-  background: #e4dfb1;
-  margin: 0;
-  overflow: hidden;
-  color: #666;
-  font: 5vw/1 'Dekko', sans-serif;
-}
-
 p {
   margin: 8vw 0 8vw 0;
+  font-size: 70%;
 }
 
 .inner {

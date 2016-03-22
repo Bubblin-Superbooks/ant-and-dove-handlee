@@ -1,13 +1,13 @@
 body {
-  background: #e4dfb1;
+  background: #f4ecdb;
   margin: 0;
   overflow: hidden;
   color: #666;
-  font: 5vw/1 'Chewy', sans-serif;
 }
 
 p {
   margin: 2vw auto 5vw auto;
+  font-size: 70%;
 }
 
 .leaf {
